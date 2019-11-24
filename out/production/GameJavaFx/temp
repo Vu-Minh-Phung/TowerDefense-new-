@@ -1,0 +1,175 @@
+package sample;
+
+import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Rectangle;
+
+public class Tower extends Rectangle{
+
+    public Rectangle displayAreaTower;
+
+    public int airId;
+
+    protected int damage;
+    protected int areaTower;
+
+    public Tower(double positionX, double positionY, double width, double height, int airId) {
+        super(positionX, positionY, width, height);
+        this.airId = airId;
+        this.areaTower = 90;
+        this.damage = 5;
+        displayAreaTower = new Rectangle(getX() - areaTower/2, getY() - areaTower/2,width + areaTower, height + areaTower);
+    }
+
+    public int shotMob = 0;
+    public boolean shoting = false;
+
+    public void physic(){
+        shoting = false;
+        for(int i = 0; i < GameLaunch.enemies.size(); i++){
+            if(airId == Value.airNormal || airId == Value.airTowerLaser || airId == Value.airMachineGun || airId == Value.airSniper || airId == Value.airSpecial) {
+                if (GameLaunch.enemies.get(i).inGame) {
+                    if (GameLaunch.enemies.get(i).intersects( displayAreaTower.getBoundsInLocal() )){
+                        shoting = true;
+                        shotMob = i;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public void  getMoney(int id){
+        GameLaunch.coin += Value.deadReward[id];
+    }
+
+    public void drawArea(GraphicsContext graphicsContext){
+        graphicsContext.setFill(Color.rgb(200, 200, 200, 0.1));
+        graphicsContext.fillOval(displayAreaTower.getX(), displayAreaTower.getY(), displayAreaTower.getWidth(),displayAreaTower.getHeight());
+        graphicsContext.setStroke(Color.BROWN);
+        graphicsContext.beginPath();
+        graphicsContext.moveTo(displayAreaTower.getX() , displayAreaTower.getY() );
+        graphicsContext.lineTo(displayAreaTower.getX() + displayAreaTower.getWidth() , displayAreaTower.getY() );
+        graphicsContext.lineTo(displayAreaTower.getX() + displayAreaTower.getWidth(), displayAreaTower.getY() + displayAreaTower.getHeight());
+        graphicsContext.lineTo(displayAreaTower.getX() , displayAreaTower.getY() + displayAreaTower.getHeight());
+        graphicsContext.lineTo(displayAreaTower.getX() , displayAreaTower.getY() );
+        graphicsContext.stroke();
+
+        if(shoting && shotMob != -1) {
+
+            graphicsContext.setStroke(Color.RED);
+            graphicsContext.beginPath();
+            graphicsContext.moveTo(getX() + getWidth() / 2, getY() + getHeight()/2);
+            graphicsContext.lineTo(GameLaunch.enemies.get(shotMob).getX() + GameLaunch.enemies.get(shotMob).getWidth()/2,
+                    GameLaunch.enemies.get(shotMob).getY() + GameLaunch.enemies.get(shotMob).getHeight()/2);
+            graphicsContext.stroke();
+
+            GameLaunch.enemies.get(shotMob).loseHealth(damage);
+            if (GameLaunch.enemies.get(shotMob).isDead()) {
+                shoting = false;
+                getMoney(shotMob);
+                GameLaunch.enemies.remove(shotMob);
+                System.out.println(GameLaunch.coin);
+                shotMob = -1;
+            }
+        }
+    }
+    public void drawBlock(GraphicsContext graphicsContext) {
+        if(airId != Value.airAir){
+            //System.out.println("areaTower" + areaTower);
+            graphicsContext.drawImage(GameLaunch.titlesAir[airId], getX(), getY(), getWidth(), getHeight());
+        }
+    }
+}
+
+
+        graphicsContext.beginPath();
+        graphicsContext.moveTo(displayAreaTower.getCenterX() , displayAreaTower.getCenterY() );
+        graphicsContext.lineTo(displayAreaTower.getCenterX() + displayAreaTower.getRadius() , displayAreaTower.getCenterY() );
+        graphicsContext.lineTo(displayAreaTower.getCenterX() + displayAreaTower.getRadius(), displayAreaTower.getCenterY() + displayAreaTower.getRadius());
+        graphicsContext.lineTo(displayAreaTower.getCenterX() , displayAreaTower.getCenterY() + displayAreaTower.getRadius());
+        graphicsContext.lineTo(displayAreaTower.getCenterX() , displayAreaTower.getCenterY() );
+        graphicsContext.stroke();
+
+
+
+
+        package sample;
+
+        import javafx.scene.canvas.GraphicsContext;
+        import javafx.scene.paint.Color;
+        import javafx.scene.shape.Circle;
+        import javafx.scene.shape.Rectangle;
+
+        public class Tower extends Rectangle{
+
+            public Rectangle displayAreaTower;
+
+            public int towerId;
+
+            protected int damage;
+            protected int areaTower;
+
+            public Tower(double positionX, double positionY, double width, double height, int airId) {
+                super(positionX, positionY, width, height);
+                this.towerId = airId;
+                this.areaTower = 90;
+                this.damage = 5;
+                displayAreaTower = new Rectangle(getX() - areaTower/2, getY() - areaTower/2,width + areaTower, height + areaTower);
+            }
+
+            public int shotMob = 0;
+            public boolean shoting = false;
+
+            public void physic(){
+                shoting = false;
+                for(int i = 0; i < GameLaunch.enemies.size(); i++){
+                    if(towerId == Value.airNormal || towerId == Value.airTowerLaser || towerId == Value.airMachineGun || towerId == Value.airSniper || towerId == Value.airSpecial) {
+                        if (GameLaunch.enemies.get(i).inGame) {
+                            if (GameLaunch.enemies.get(i).intersects( displayAreaTower.getBoundsInLocal() )){
+                                shoting = true;
+                                shotMob = i;
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+
+            public void  getMoney(int id){
+                GameLaunch.coin += Value.deadReward[id];
+            }
+
+            public void drawArea(GraphicsContext graphicsContext){
+
+                graphicsContext.setFill(Color.rgb(200, 200, 200, 0.1));
+                graphicsContext.fillOval(displayAreaTower.getX(), displayAreaTower.getY(), displayAreaTower.getWidth(),displayAreaTower.getHeight());
+                graphicsContext.setStroke(Color.rgb(0, 200, 200, 0.5));
+                graphicsContext.strokeOval(displayAreaTower.getX(), displayAreaTower.getY(), displayAreaTower.getWidth(),displayAreaTower.getHeight());
+
+                if(shoting && shotMob != -1) {
+
+                    graphicsContext.setStroke(Color.RED);
+                    graphicsContext.beginPath();
+                    graphicsContext.moveTo(getX() + getWidth() / 2, getY() + getHeight()/2);
+                    graphicsContext.lineTo(GameLaunch.enemies.get(shotMob).getX() + GameLaunch.enemies.get(shotMob).getWidth()/2,
+                                           GameLaunch.enemies.get(shotMob).getY() + GameLaunch.enemies.get(shotMob).getHeight()/2);
+                    graphicsContext.stroke();
+
+                    GameLaunch.enemies.get(shotMob).loseHealth(damage);
+                    if (GameLaunch.enemies.get(shotMob).isDead()) {
+                        shoting = false;
+                        getMoney(shotMob);
+                        GameLaunch.enemies.remove(shotMob);
+                        //System.out.println(GameLaunch.coin);
+                        shotMob = -1;
+                    }
+                }
+            }
+
+            public void drawBlock(GraphicsContext graphicsContext) {
+                    graphicsContext.drawImage(GameLaunch.titlesAir[towerId], getX(), getY(), getWidth(), getHeight());
+            }
+
+        }
