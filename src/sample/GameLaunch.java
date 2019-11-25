@@ -1,7 +1,7 @@
 package sample;
 
+
 import javafx.animation.KeyFrame;
-import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -10,7 +10,12 @@ import javafx.scene.Group;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import javafx.scene.input.KeyEvent;
+
+import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontPosture;
+import javafx.scene.text.FontWeight;
+import javafx.scene.text.TextAlignment;
 import javafx.util.Duration;
 import sample.Bullet.Bullet;
 import sample.Enemy.*;
@@ -21,7 +26,6 @@ import sample.Tower.Tower;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
-
 
 public class GameLaunch {
 
@@ -68,18 +72,21 @@ public class GameLaunch {
     public static Image[] titlesIcon = new Image[10];
     public static AnimatedImages[] titlesBullet = new AnimatedImages[10];
     public static AnimatedImages[] titlesEnemy = new AnimatedImages[20];
+    public static List<File> pathMediaGame = new ArrayList<>();
 
 
     public void define() {
         try {
-            titlesMap[0] = Draw.loadImage(Value.pathMap + "startScene.jpg");
+            titlesMap[0] = Draw.loadImage(Value.pathMap + "start1.png");
             titlesMap[1] = Draw.loadImage(Value.pathMap + "Map1.jpg");
             titlesMap[2] = Draw.loadImage(Value.pathMap + "Map2.jpg");
             titlesMap[3] = Draw.loadImage(Value.pathMap + "Map3.jpg");
             titlesMap[4] = Draw.loadImage(Value.pathMap + "Map4.jpg");
-            titlesMap[5] = Draw.loadImage(Value.pathMap + "Lose.jpg");
+            titlesMap[5] = Draw.loadImage(Value.pathMap + "Map5.jpg");
             titlesMap[6] = Draw.loadImage(Value.pathMap + "Lose.jpg");
-            titlesMap[7] = Draw.loadImage(Value.pathMap + "Background1.jpg");
+            titlesMap[7] = Draw.loadImage(Value.pathMap + "nextMap.jpg");
+            titlesMap[8] = Draw.loadImage(Value.pathMap + "Win1.jpg");
+            titlesMap[9] = Draw.loadImage(Value.pathMap + "Background1.jpg");
             System.out.println("Loaded titlesMap!");
 
             titlesGround[0] = Draw.loadImage(Value.pathBricks + "brick1.png");
@@ -138,8 +145,8 @@ public class GameLaunch {
                 j++;
             }
 
-
             System.out.println("Loaded titlesEnemy!" + j);
+            //playSound(sound);
 
         }
         catch (Exception e){
@@ -202,22 +209,47 @@ public class GameLaunch {
         else isLose = false;
     }
 
+    public void screenNextMap(GraphicsContext graphicsContext){
+        graphicsContext.clearRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);     // Delete Screen
+        graphicsContext.drawImage(titlesMap[7], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
+        graphicsContext.setStroke(Color.BLUE);
+        graphicsContext.setLineWidth(2);
+        graphicsContext.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 25));
+        graphicsContext.strokeText("Next Map. Press to continue!", GameStart.WIDTH/2, GameStart.HEIGHT/1.2);
+    }
+
     public void screenWinner(GraphicsContext graphicsContext){
         graphicsContext.clearRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);     // Delete Screen
-        graphicsContext.drawImage(titlesMap[2], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
+        graphicsContext.drawImage(titlesMap[8], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
+        graphicsContext.setStroke(Color.YELLOW);
+        graphicsContext.setLineWidth(2);
+        graphicsContext.setFont(Font.font("verdana", FontWeight.BOLD, FontPosture.REGULAR, 30));
+        graphicsContext.strokeText("You Win", GameStart.WIDTH/2, GameStart.HEIGHT/1.2);
+        graphicsContext.setTextAlign(TextAlignment.CENTER);
     }
 
     public void screenLoser(GraphicsContext graphicsContext){
         graphicsContext.clearRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);     // Delete Screen
-        graphicsContext.drawImage(titlesMap[7], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
+        graphicsContext.drawImage(titlesMap[6], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
+        graphicsContext.setStroke(Color.RED);
+        graphicsContext.setLineWidth(2);
+        graphicsContext.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 30));
+        graphicsContext.strokeText("You Lose", GameStart.WIDTH/2, GameStart.HEIGHT/1.2);
+        graphicsContext.setTextAlign(TextAlignment.CENTER);
     }
 
     void init(Group group, GraphicsContext graphicsContext){
         group.setOnMouseClicked(e->{
             gameStatus = GameStatus.RUNNING;
             graphicsContext.fillRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);
+
         });
-        graphicsContext.drawImage(titlesMap[MapId], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);
+        graphicsContext.drawImage(titlesMap[0], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);
+        graphicsContext.setStroke(Color.RED);
+        graphicsContext.setLineWidth(2);
+        graphicsContext.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 30));
+        graphicsContext.strokeText("Press to start!", GameStart.WIDTH/2, GameStart.HEIGHT/1.2);
+        graphicsContext.setTextAlign(TextAlignment.CENTER);
     }
 
     public void start(Group group, Canvas canvas, GraphicsContext graphicsContext){
@@ -240,7 +272,7 @@ public class GameLaunch {
                     }
                     else if(gameStatus == GameStatus.RUNNING) {
                         graphicsContext.clearRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);     // Delete Screen
-                        graphicsContext.drawImage(titlesMap[7], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
+                        graphicsContext.drawImage(titlesMap[9], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);       // Background back
                         graphicsContext.drawImage(titlesMap[MapId], paddingX, paddingY, myWidthGame, myHeightGame);     // Background front
 
                         if (isFirst){
@@ -284,19 +316,32 @@ public class GameLaunch {
                         }
                     }
                     else {
-                        if(isWin){
-                            screenWinner(graphicsContext);
-                            //System.out.println("chiu");
+                        if(isLose){
+                            screenLoser(graphicsContext);
                             loadLv = true;
+                            System.out.println("Lose");
                         }
-                        else {screenLoser(graphicsContext);}
+                        else {
+                            if(lv == 5){
+                                screenWinner(graphicsContext);
+                                System.out.println("Winner");
+                            }
+                            else screenNextMap(graphicsContext);
+                            loadLv = true;
+                            System.out.println("Next map");
+                        }
 
                         group.getChildren().setAll();
                         group.getChildren().add(canvas);
 
                         group.setOnMouseClicked(e->{
-
-                            gameStatus = GameStatus.RUNNING;
+                            if(isWin && lv != 5) {
+                                gameStatus = GameStatus.RUNNING;
+                            }
+                            if(isLose || (isWin && lv == 5)) {
+                                gameStatus = GameStatus.INIT;
+                                lv = 0;
+                            }
                             graphicsContext.fillRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);
 
                             for(int i = enemies.size() - 1; i >= 0; --i){

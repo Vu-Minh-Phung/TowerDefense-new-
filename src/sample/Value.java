@@ -31,4 +31,5 @@ public class Value {
     public static String pathIcon = ".\\Image\\Icon\\";
     public static String pathBricks = ".\\Image\\Bricks\\";
     public static String pathBullet = ".\\Image\\Bullet\\";
+    public static String pathSound = ".\\Sound\\";
 }

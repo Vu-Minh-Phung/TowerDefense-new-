@@ -13,7 +13,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
 public class Draw {
-    public Draw(){ }
+    public Draw(String s){ }
     public static void drawImage(double positionX, double positionY, double width, double height, Image image, Group group, boolean alignImage){
         ImageView imageView = new ImageView(image);
         imageView.setX(positionX);
@@ -67,6 +67,8 @@ public class Draw {
         animatedImages.frames = image;
         animatedImages.duration = 0.100;
     }
+
+
 }
 
 /**

@@ -10,7 +10,7 @@ import sample.Value;
 public class SpecialTower extends Tower{
     public SpecialTower(double positionX, double positionY, double width, double height, int airId) {
         super(positionX, positionY, width, height, airId);
-        damageTower = 40;
+        damageTower = 50;
         areaTower = 70;
         speedTower = 2;
         idBulletTower = 0;

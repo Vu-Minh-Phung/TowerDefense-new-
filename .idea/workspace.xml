@@ -2,39 +2,40 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/boommerang8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/bull1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/bull2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/bull3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/bull41.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/round1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/round2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/round3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Image/Bullet/round4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map2" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map4" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Map5" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/Map/bk.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/Map/map7 (2).jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/Map/nextMap.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Image/Map/start1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sound/alert.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sound/kingdom.mp3" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Sound/music1.mp3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Map1" beforeDir="false" afterPath="$PROJECT_DIR$/Map1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Image/Map/map5.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Image/Map/map5.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map2" beforeDir="false" afterPath="$PROJECT_DIR$/Map2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map3" beforeDir="false" afterPath="$PROJECT_DIR$/Map3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Map4" beforeDir="false" afterPath="$PROJECT_DIR$/Map4" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/AnimatedImages.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/AnimatedImages.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Block.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Block.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Bullet/Bullet.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Bullet/Bullet.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Draw.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Draw.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/BossEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/BossEnemy.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/Enemy$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/Enemy$Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/Enemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/Enemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/NormalEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/NormalEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/SpeedEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/SpeedEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/TankerEnemy.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Enemy/TankerEnemy.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameLaunch$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameLaunch$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameLaunch$GameStatus.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameLaunch$GameStatus.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameLaunch.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameLaunch.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameStart.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/GameStart.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Place/Place.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Place/Place.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Place/Spawn.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Place/Spawn.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Place/Target.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Place/Target.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Room.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Save.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Save.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Store$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Store$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Store$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Store$2.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Store.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Store.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/LaserTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/LaserTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/MachineGunTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/MachineGunTower.class" afterDir="false" />
@@ -42,27 +43,25 @@
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/SniperTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/SniperTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/SpecialTower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/SpecialTower.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/Tower.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Tower/Tower.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Bullet/Bullet.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Bullet/Bullet.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Value.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/sample/Value.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/GameJavaFx/temp" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/GameJavaFx/temp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Block.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Block.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Draw.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Draw.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Enemy/BossEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Enemy/BossEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Enemy/NormalEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Enemy/NormalEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Enemy/SpeedEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Enemy/SpeedEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Enemy/TankerEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Enemy/TankerEnemy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/GameLaunch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameLaunch.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Save.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Save.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Tower/LaserTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tower/LaserTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/GameStart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/GameStart.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Tower/MachineGunTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tower/MachineGunTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Tower/NormalTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tower/NormalTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Tower/SniperTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tower/SniperTower.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/sample/Tower/SpecialTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tower/SpecialTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/sample/Tower/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Tower/Tower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/sample/Value.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/sample/Value.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/temp" beforeDir="false" afterPath="$PROJECT_DIR$/src/temp" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="209" />
   </component>
   <component name="CreatePatchCommitExecutor">
     <option name="PATCH_PATH" value="" />
@@ -114,6 +113,7 @@
         <option value="JavaFXApplication" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="module-info" />
       </list>
     </option>
   </component>
@@ -141,9 +141,9 @@
     <property name="OverrideImplement.combined" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Documents/Introduction-to-JavaFX-for-Game-Development-master/Introduction-to-JavaFX-for-Game-Development-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Documents/thegame-master" />
     <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="recentsLimit" value="5" />
   </component>
@@ -275,7 +275,7 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/GameJavaFx$Main.ic" NAME="Main Coverage Results" MODIFIED="1574620902281" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+    <SUITE FILE_PATH="coverage/GameJavaFx$Main.ic" NAME="Main Coverage Results" MODIFIED="1574662327893" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>sample.Place.*</FILTER>
     </SUITE>
   </component>

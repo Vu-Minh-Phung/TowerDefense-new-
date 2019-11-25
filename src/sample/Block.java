@@ -12,7 +12,6 @@ public class Block extends Rectangle {
 
     public int groundId;
     public int airId;
-    //public int positionId;
 
     public Block(int positionX, int positionY, int width, int height, int groundId, int airId){
         super(positionX, positionY, width, height);
