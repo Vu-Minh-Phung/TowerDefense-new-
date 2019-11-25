@@ -11,6 +11,7 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -50,6 +51,7 @@ public class GameLaunch {
     public boolean isWin = false;
     public boolean isLose = false;
 
+
     public Room room;
     private Save save;
     private Store store;
@@ -57,6 +59,7 @@ public class GameLaunch {
 
     public static List<Tower> towers = new ArrayList<>();
 
+    public static double times = 0.017;
     public static boolean create = true;
     public static List<Enemy> enemies= new ArrayList<>();
     public static Spawn spawnPlace;
@@ -68,7 +71,7 @@ public class GameLaunch {
 
     public static Image[] titlesMap = new Image[10];
     public static Image[] titlesGround = new Image[10];
-    public static Image[] titlesAir = new Image[10];
+    public static Image[] titlesAir = new Image[20];
     public static Image[] titlesIcon = new Image[10];
     public static AnimatedImages[] titlesBullet = new AnimatedImages[10];
     public static AnimatedImages[] titlesEnemy = new AnimatedImages[20];
@@ -104,6 +107,7 @@ public class GameLaunch {
             titlesAir[7] = Draw.loadImage(Value.pathTower + "tower4.png");
             titlesAir[8] = Draw.loadImage(Value.pathTower + "tower5.png");
             titlesAir[9] = Draw.loadImage(Value.pathTower + "Target.png");
+            titlesAir[10] = Draw.loadImage(Value.pathTower + "skip.png");
             System.out.println("Loaded titlesAir!");
 
             titlesBullet[0] = new AnimatedImages();
@@ -146,7 +150,9 @@ public class GameLaunch {
             }
 
             System.out.println("Loaded titlesEnemy!" + j);
-            //playSound(sound);
+
+            AudioClip audioClip = new AudioClip("C:\\Users\\QD\\GameJavaFx\\Sound\\alert.mp3");
+            audioClip.play();
 
         }
         catch (Exception e){
@@ -259,7 +265,7 @@ public class GameLaunch {
         final long timeStart = System.currentTimeMillis();
 
         KeyFrame kf = new KeyFrame(
-            Duration.seconds(0.017),                // 60 FPS
+            Duration.seconds(times),                // 60 FPS
             new EventHandler<ActionEvent>()
             {
                 public void handle(ActionEvent ae)

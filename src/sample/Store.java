@@ -88,7 +88,6 @@ public class Store {
                                 if (buttonId[j] == Value.airTrashCan && holdItem == true) {
                                     buttonImage[helpId].setX(position[helpId].getX() + itemIn / 2);
                                     buttonImage[helpId].setY(position[helpId].getY() + itemIn / 2);
-
                                     helpId = Value.airAir;
                                     holdItem = false;
                                 } else if (buttonId[j] != Value.airTrashCan) {
@@ -105,7 +104,7 @@ public class Store {
                                  for (int x = 0; x < blocks[y].length; x++) {
                                     if (blocks[y][x].contains(GameLaunch.mse)) {
                                         if(buttonId[helpId] == 2 && (blocks[y][x].airId == Value.airNormal || blocks[y][x].airId == Value.airTowerLaser
-                                                || blocks[y][x].airId == Value.airSpecial || blocks[y][x].airId == Value.airMachineGun || blocks[y][x].airId == Value.airSniper)){
+                                        || blocks[y][x].airId == Value.airSpecial || blocks[y][x].airId == Value.airMachineGun || blocks[y][x].airId == Value.airSniper)){
 
                                             GameLaunch.coin += buttonPrice[blocks[y][x].airId - Value.airNormal]/2;;
 
@@ -117,6 +116,19 @@ public class Store {
                                                 }
                                             }
                                             System.out.println("Hello");
+                                        }
+                                        else if(buttonId[helpId] == 3 && (blocks[y][x].airId == Value.airNormal || blocks[y][x].airId == Value.airTowerLaser
+                                            || blocks[y][x].airId == Value.airSpecial || blocks[y][x].airId == Value.airMachineGun || blocks[y][x].airId == Value.airSniper)){
+                                                for(int l = 0; l < GameLaunch.towers.size(); l++){
+                                                    if(blocks[y][x].getX() == GameLaunch.towers.get(l).getX()
+                                                    && blocks[y][x].getY() == GameLaunch.towers.get(l).getY()
+                                                    && GameLaunch.towers.get(l).upgrade < 3
+                                                    && GameLaunch.coin >= GameLaunch.towers.get(l).upgrade * buttonPrice[helpId]){
+                                                        GameLaunch.towers.get(l).upgradeTower();
+                                                        GameLaunch.coin -= GameLaunch.towers.get(l).upgrade * buttonPrice[helpId];
+                                                        System.out.println("Hello");
+                                                    }
+                                                }
                                         }
                                         else
                                          if (blocks[y][x].groundId != Value.roadId1

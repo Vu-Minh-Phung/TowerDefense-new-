@@ -19,7 +19,7 @@ public class Value {
     public final static int airSpecial = 6;
     public final static int airMachineGun = 7;
     public final static int airSniper = 8;
-
+    public final static int skip = 10;
 
     public static int modGreeny = -1;
     public static int[] deadReward = {5, 7, 10, 12};

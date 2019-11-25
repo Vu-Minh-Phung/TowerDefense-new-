@@ -19,6 +19,7 @@ public class Tower extends Rectangle{
 
     protected int speedTower = 40;
     protected int delaySpeedTower = speedTower;
+    public int upgrade = 1;
 
     int idBulletTower = 0;
 
@@ -89,6 +90,15 @@ public class Tower extends Rectangle{
                 shotMob = -1;
             }
         }
+    }
+
+    public void upgradeTower(){
+        upgrade++;
+        damageTower += 1;
+        areaTower += 100;
+        speedTower -= 1;
+        displayAreaTower = new Circle(getX() + getWidth()/2, getY() + getHeight()/2, areaTower);
+
     }
 
     public void drawBlock(GraphicsContext graphicsContext) {
