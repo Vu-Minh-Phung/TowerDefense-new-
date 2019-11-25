@@ -59,9 +59,9 @@ public class Draw {
     public static void loadAnimatedImage(AnimatedImages animatedImages, String name, int n, int m) throws FileNotFoundException {
         Image[] image = new Image[m - n + 1];
         for (int i = n; i <= m; i++){
-            System.out.println(Value.pathEnemy + name + i + ".png");
-            image[i - n] = Draw.loadImage(Value.pathEnemy + name + i + ".png");
-            System.out.println(Value.pathEnemy + name + i + ".png");
+            System.out.println( name + i + ".png");
+            image[i - n] = Draw.loadImage(name + i + ".png");
+            System.out.println(name + i + ".png");
         }
 
         animatedImages.frames = image;

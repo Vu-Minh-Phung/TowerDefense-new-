@@ -9,6 +9,7 @@ public class SpeedEnemy extends  Enemy{
         enemyId = 1;
         speedEnemy = 2;
         maxHealth = 2800;
+        damEnemy = 5;
         healthEnemy = maxHealth;
     }
 }

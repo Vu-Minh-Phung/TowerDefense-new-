@@ -10,9 +10,10 @@ import sample.Value;
 public class SpecialTower extends Tower{
     public SpecialTower(double positionX, double positionY, double width, double height, int airId) {
         super(positionX, positionY, width, height, airId);
-        damageTower = 50;
-        areaTower = 75;
+        damageTower = 40;
+        areaTower = 70;
         speedTower = 2;
+        idBulletTower = 0;
     }
 
     public void physic(){
@@ -31,7 +32,7 @@ public class SpecialTower extends Tower{
                             shotMob = i;
 
                             if (delaySpeedTower >= speedTower) {
-                                GameLaunch.bullets.add(new Bullet(towerId, shotMob, getX() + getWidth() / 2, getY() + getHeight() / 2, Room.blockSize / 4, speedBulletTower, damageTower));
+                                GameLaunch.bullets.add(new Bullet(idBulletTower, shotMob, getX() + getWidth() / 2, getY() + getHeight() / 2, Room.blockSize / 4, speedBulletTower, damageTower));
                                 checkShotting = true;
                             }
                         }
@@ -50,19 +51,12 @@ public class SpecialTower extends Tower{
         //try{
         graphicsContext.setFill(Color.rgb(200, 200, 200, 0.1));
         graphicsContext.fillOval(displayAreaTower.getCenterX() - displayAreaTower.getRadius(), displayAreaTower.getCenterY() - displayAreaTower.getRadius(), displayAreaTower.getRadius() * 2, displayAreaTower.getRadius() * 2);
-        graphicsContext.setStroke(Color.rgb(0, 200, 200, 0.5));
+        graphicsContext.setStroke(Color.rgb(250, 200, 200, 0.5));
         graphicsContext.strokeOval(displayAreaTower.getCenterX() - displayAreaTower.getRadius(), displayAreaTower.getCenterY() - displayAreaTower.getRadius(), displayAreaTower.getRadius() * 2, displayAreaTower.getRadius() * 2);
 
 
 
         if(shoting && shotMob != -1) {
-            //System.out.println("shot mod: " + shotMob);
-            graphicsContext.setStroke(Color.RED);
-            graphicsContext.beginPath();
-            graphicsContext.moveTo(getX() + getWidth() / 2, getY() + getHeight() / 2);
-            graphicsContext.lineTo(GameLaunch.enemies.get(shotMob).getX() + GameLaunch.enemies.get(shotMob).getWidth() / 2,
-                    GameLaunch.enemies.get(shotMob).getY() + GameLaunch.enemies.get(shotMob).getHeight() / 2);
-            graphicsContext.stroke();
 
             if (GameLaunch.enemies.get(shotMob).isDead()) {
                 shoting = false;

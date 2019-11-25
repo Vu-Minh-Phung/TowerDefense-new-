@@ -14,22 +14,25 @@ public class Bullet extends Rectangle {
     public int damageBullet;
 
     public int idBullet;
+    public int idBulletTower;
 
-    public Bullet(int airId, int idEnemy, double positionBulletX, double positionBulletY, double bulletSize, int speed, int damageBullet){
+    public Bullet(int idBulletTower, int idEnemy, double positionBulletX, double positionBulletY, double bulletSize, int speed, int damageBullet){
         super(positionBulletX, positionBulletY, bulletSize, bulletSize);
         this.speedBullet = speed;
         this.idBullet = idEnemy;
         this.damageBullet = damageBullet;
+        this.idBulletTower = idBulletTower;
     }
 
     public void drawBullet(GraphicsContext graphicsContext){
+        double times = System.nanoTime() / 1000000000.0;;
         double line = Math.sqrt(Math.pow(targetPositionBulletX - getX(), 2) + Math.pow(targetPositionBulletY - getY(), 2));
 
         setX(getX() + speedBullet * (targetPositionBulletX - getX()) / line);
         setY(getY() + speedBullet * (targetPositionBulletY - getY()) / line);
 
         //System.out.println("positionBulletX : " + getX() + " | " + "positionBulletY : " + getY());
-        graphicsContext.drawImage(GameLaunch.titlesBullet[0], getX(), getY(), Room.blockSize / 4, Room.blockSize / 4);
+        graphicsContext.drawImage(GameLaunch.titlesBullet[idBulletTower].getFrame(times), getX(), getY(), Room.blockSize / 4, Room.blockSize / 4);
     }
 
     public void update() {

@@ -1,5 +1,9 @@
 package sample;
 
+import sample.Enemy.BossEnemy;
+import sample.Enemy.NormalEnemy;
+import sample.Enemy.SpeedEnemy;
+import sample.Enemy.TankerEnemy;
 import sample.Place.Place;
 import sample.Place.Spawn;
 import sample.Place.Target;
@@ -45,6 +49,18 @@ public class Save {
                     GameLaunch.targetPlace.positionY = GameLaunch.targetPlace.idY * Room.blockSize + GameLaunch.paddingY;
                     blocks[GameLaunch.targetPlace.idY][GameLaunch.targetPlace.idX].airId = 0;
                     System.out.println(GameLaunch.targetPlace.idX + " | " + GameLaunch.targetPlace.idY);
+                }
+                else if(str.equals("NormalEnemy")){
+                    GameLaunch.enemies.add(new NormalEnemy());
+                }
+                else if(str.equals("SpeedEnemy")){
+                    GameLaunch.enemies.add(new SpeedEnemy());
+                }
+                else if(str.equals("TankerEnemy")){
+                    GameLaunch.enemies.add(new TankerEnemy());
+                }
+                else if(str.equals("BossEnemy")){
+                    GameLaunch.enemies.add(new BossEnemy());
                 }
             }
             loadScanner.close();

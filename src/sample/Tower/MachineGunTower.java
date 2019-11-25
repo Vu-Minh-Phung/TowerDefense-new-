@@ -9,6 +9,7 @@ public class MachineGunTower extends Tower {
         areaTower = 90;
         speedTower = 15;
         displayAreaTower = new Circle(getX() + getWidth()/2, getY() + getHeight()/2, areaTower);
+        idBulletTower = 2;
         System.out.println("Machine Gun");
     }
 

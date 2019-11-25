@@ -11,5 +11,6 @@ public class BossEnemy extends Enemy{
         speedEnemy = 1;
         maxHealth = 5000;
         healthEnemy = maxHealth;
+        damEnemy = 20;
     }
 }

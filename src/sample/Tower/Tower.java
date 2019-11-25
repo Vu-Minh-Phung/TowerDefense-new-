@@ -20,7 +20,7 @@ public class Tower extends Rectangle{
     protected int speedTower = 40;
     protected int delaySpeedTower = speedTower;
 
-    boolean isTest = true;
+    int idBulletTower = 0;
 
     public Tower(double positionX, double positionY, double width, double height, int airId) {
         super(positionX, positionY, width, height);
@@ -49,7 +49,7 @@ public class Tower extends Rectangle{
                             shotMob = i;
 
                             if (delaySpeedTower >= speedTower) {
-                                GameLaunch.bullets.add(new Bullet(towerId, shotMob, getX() + getWidth() / 2, getY() + getHeight() / 2, Room.blockSize / 4, speedBulletTower, damageTower));
+                                GameLaunch.bullets.add(new Bullet(idBulletTower, shotMob, getX() + getWidth() / 2, getY() + getHeight() / 2, Room.blockSize / 4, speedBulletTower, damageTower));
                                 delaySpeedTower = 0;
                             }
                             break;
@@ -81,8 +81,6 @@ public class Tower extends Rectangle{
             graphicsContext.lineTo(GameLaunch.enemies.get(shotMob).getX() + GameLaunch.enemies.get(shotMob).getWidth() / 2,
                     GameLaunch.enemies.get(shotMob).getY() + GameLaunch.enemies.get(shotMob).getHeight() / 2);
             graphicsContext.stroke();
-
-
 
             //GameLaunch.enemies.get(shotMob).loseHealth(damageTower);
 

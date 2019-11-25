@@ -12,14 +12,13 @@ public class LaserTower extends Tower {
     public LaserTower(double positionX, double positionY, double width, double height, int airId) {
         super(positionX, positionY, width, height, airId);
         damageTower = 50;
-        areaTower = 240;
-        speedTower = 20;
+        areaTower = 200;
+        speedTower = 5;
         displayAreaTower = new Circle(getX() + getWidth()/2, getY() + getHeight()/2, areaTower);
     }
 
     public void physic(){
         try {
-            //System.out.println("X: " + displayAreaTower.getCenterX() + " | Y: " + displayAreaTower.getCenterY() + " | Area: " + displayAreaTower.getRadius() );
             shotMob = -1;
             shoting = false;
             for (int i = 0; i < GameLaunch.enemies.size(); i++) {
@@ -32,7 +31,6 @@ public class LaserTower extends Tower {
                             shotMob = i;
                             if (delaySpeedTower >= speedTower) {
                                 GameLaunch.enemies.get(shotMob).loseHealth(damageTower);
-                                delaySpeedTower = 0;
                             }
                             break;
                         }
@@ -51,10 +49,10 @@ public class LaserTower extends Tower {
         //try{
         graphicsContext.setFill(Color.rgb(200, 200, 200, 0.1));
         graphicsContext.fillOval(displayAreaTower.getCenterX() - displayAreaTower.getRadius(), displayAreaTower.getCenterY() - displayAreaTower.getRadius(), displayAreaTower.getRadius() * 2, displayAreaTower.getRadius() * 2);
-        graphicsContext.setStroke(Color.rgb(0, 200, 200, 0.5));
+        graphicsContext.setStroke(Color.rgb(200, 200, 100, 0.5));
         graphicsContext.strokeOval(displayAreaTower.getCenterX() - displayAreaTower.getRadius(), displayAreaTower.getCenterY() - displayAreaTower.getRadius(), displayAreaTower.getRadius() * 2, displayAreaTower.getRadius() * 2);
 
-        if(shoting && shotMob != -1) {
+        if(shoting && shotMob != -1 && delaySpeedTower > speedTower) {
             //System.out.println("shot mod: " + shotMob);
             graphicsContext.setStroke(Color.RED);
             graphicsContext.beginPath();
@@ -67,6 +65,7 @@ public class LaserTower extends Tower {
                 shoting = false;
                 shotMob = -1;
             }
+            delaySpeedTower = 0;
         }
     }
 }

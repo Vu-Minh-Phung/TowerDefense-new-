@@ -7,8 +7,9 @@ import sample.GameLaunch;
 public class TankerEnemy extends Enemy{
     public TankerEnemy(){
         enemyId = 2;
-        speedEnemy = 2;
+        speedEnemy = 1;
         maxHealth = 4000;
+        damEnemy = 2;
         healthEnemy = maxHealth;
     }
 }

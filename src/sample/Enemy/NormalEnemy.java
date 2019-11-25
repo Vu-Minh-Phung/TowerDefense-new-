@@ -8,6 +8,7 @@ public class NormalEnemy extends Enemy{
     public NormalEnemy(){
         super();
         enemyId = 0;
-        speedEnemy = 5;
+        speedEnemy = 1;
+        damEnemy = 10;
     }
 }

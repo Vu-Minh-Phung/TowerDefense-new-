@@ -19,7 +19,7 @@ public class Store {
     public static int shopWidth = 8;
     public Rectangle[] position = new Rectangle[shopWidth];
     public int[] buttonId = {Value.airNormal, Value.airTowerLaser, Value.airMachineGun, Value.airSniper, Value.airSpecial, 3, 2, 1};
-    public int[] buttonPrice = {10, 15, 20, 25, 30, 0, 0};
+    public int[] buttonPrice = {20, 25, 30, 35, 50, 0, 0};
 
     public int buttonSize = 52;
     public int cellSpace = 3;
@@ -107,7 +107,7 @@ public class Store {
                                         if(buttonId[helpId] == 2 && (blocks[y][x].airId == Value.airNormal || blocks[y][x].airId == Value.airTowerLaser
                                                 || blocks[y][x].airId == Value.airSpecial || blocks[y][x].airId == Value.airMachineGun || blocks[y][x].airId == Value.airSniper)){
 
-                                            GameLaunch.coin += buttonPrice[0]/2;;
+                                            GameLaunch.coin += buttonPrice[blocks[y][x].airId - Value.airNormal]/2;;
 
                                             for(int l = 0; l < GameLaunch.towers.size(); l++){
                                                 if (GameLaunch.towers.get(l).getX() == blocks[y][x].getX()

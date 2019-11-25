@@ -66,14 +66,14 @@ public class GameLaunch {
     public static Image[] titlesGround = new Image[10];
     public static Image[] titlesAir = new Image[10];
     public static Image[] titlesIcon = new Image[10];
-    public static Image[] titlesBullet = new Image[10];
+    public static AnimatedImages[] titlesBullet = new AnimatedImages[10];
     public static AnimatedImages[] titlesEnemy = new AnimatedImages[20];
 
 
     public void define() {
         try {
             titlesMap[0] = Draw.loadImage(Value.pathMap + "startScene.jpg");
-            titlesMap[1] = Draw.loadImage(Value.pathMap + "Lose.jpg");
+            titlesMap[1] = Draw.loadImage(Value.pathMap + "Map1.jpg");
             titlesMap[2] = Draw.loadImage(Value.pathMap + "Map2.jpg");
             titlesMap[3] = Draw.loadImage(Value.pathMap + "Map3.jpg");
             titlesMap[4] = Draw.loadImage(Value.pathMap + "Map4.jpg");
@@ -99,8 +99,12 @@ public class GameLaunch {
             titlesAir[9] = Draw.loadImage(Value.pathTower + "Target.png");
             System.out.println("Loaded titlesAir!");
 
-            titlesBullet[0] = Draw.loadImage(Value.pathBullet + "bullet3.png");
-            titlesBullet[1] = Draw.loadImage(Value.pathBullet + "bullet4.png");
+            titlesBullet[0] = new AnimatedImages();
+            Draw.loadAnimatedImage(titlesBullet[0], Value.pathBullet + "boommerang", 1 , 8);
+            titlesBullet[1] = new AnimatedImages();
+            Draw.loadAnimatedImage(titlesBullet[1], Value.pathBullet + "round", 1 , 4);
+            titlesBullet[2] = new AnimatedImages();
+            Draw.loadAnimatedImage(titlesBullet[2], Value.pathBullet + "bullet", 1 , 2);
 
             titlesIcon[0] = Draw.loadImage(Value.pathIcon + "life.png");
             titlesIcon[1] = Draw.loadImage(Value.pathIcon + "coin.png");
@@ -112,25 +116,25 @@ public class GameLaunch {
             int j = 0;
             for(int i = 0; i <= 3; i++){
                 titlesEnemy[j] = new AnimatedImages();
-                Draw.loadAnimatedImage(titlesEnemy[j], "SpeedEnemy", i*4 + 1 , (i*4 + 4));
+                Draw.loadAnimatedImage(titlesEnemy[j], Value.pathEnemy+"SpeedEnemy", i*4 + 1 , (i*4 + 4));
                 j++;
             }
 
             for(int i = 0; i <= 3; i++){
                 titlesEnemy[j] = new AnimatedImages();
-                Draw.loadAnimatedImage(titlesEnemy[j], "NormalEnemy", i*4 + 1 , (i*4 + 4));
+                Draw.loadAnimatedImage(titlesEnemy[j], Value.pathEnemy+"NormalEnemy", i*4 + 1 , (i*4 + 4));
                 j++;
             }
 
             for(int i = 0; i <= 3; i++){
                 titlesEnemy[j] = new AnimatedImages();
-                Draw.loadAnimatedImage(titlesEnemy[j], "TankEnemy", i*4 + 1 , (i*4 + 4));
+                Draw.loadAnimatedImage(titlesEnemy[j], Value.pathEnemy+"TankEnemy", i*4 + 1 , (i*4 + 4));
                 j++;
             }
 
             for(int i = 0; i <= 3; i++){
                 titlesEnemy[j] = new AnimatedImages();
-                Draw.loadAnimatedImage(titlesEnemy[j], "BossEnemy", i*4 + 1 , (i*4 + 4));
+                Draw.loadAnimatedImage(titlesEnemy[j], Value.pathEnemy+"BossEnemy", i*4 + 1 , (i*4 + 4));
                 j++;
             }
 
@@ -162,19 +166,6 @@ public class GameLaunch {
 
 
             store = new Store();
-
-            for(int i = 0; i < 5; i++){
-                enemies.add(new NormalEnemy());
-            }
-            for(int i = 0; i < 5; i++){
-                enemies.add(new SpeedEnemy());
-            }
-            for(int i = 0; i < 5; i++){
-                enemies.add(new TankerEnemy());
-            }
-            for(int i = 0; i < 5; i++){
-                enemies.add(new BossEnemy());
-            }
 
         }
         catch (Exception e){
@@ -295,7 +286,8 @@ public class GameLaunch {
                     else {
                         if(isWin){
                             screenWinner(graphicsContext);
-                            System.out.println("chiu");
+                            //System.out.println("chiu");
+                            loadLv = true;
                         }
                         else {screenLoser(graphicsContext);}
 
@@ -309,7 +301,6 @@ public class GameLaunch {
 
                             for(int i = enemies.size() - 1; i >= 0; --i){
                                 enemies.remove(i);
-                                System.out.println("delete enemy");
                             }
                             for(int i = towers.size() - 1; i >= 0; --i){
                                 towers.remove(i);
@@ -320,9 +311,7 @@ public class GameLaunch {
                                 }
                                 isFirst = true;
                             }
-                            catch (Exception ez){
-                                System.out.println("co bien");
-                            }
+                            catch (Exception ez){ }
                             isWin = false;
                             isLose = false;
                         });
