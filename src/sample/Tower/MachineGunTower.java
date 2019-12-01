@@ -22,8 +22,6 @@ public class MachineGunTower extends Tower {
         graphicsContext.setStroke(Color.rgb(50, 200, 50, 0.1));
         graphicsContext.strokeOval(displayAreaTower.getCenterX() - displayAreaTower.getRadius(), displayAreaTower.getCenterY() - displayAreaTower.getRadius(), displayAreaTower.getRadius() * 2, displayAreaTower.getRadius() * 2);
 
-
-
         if(shoting && shotMob != -1) {
 
             if (GameLaunch.enemies.get(shotMob).isDead()) {

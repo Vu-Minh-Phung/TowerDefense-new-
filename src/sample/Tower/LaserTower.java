@@ -1,9 +1,11 @@
 package sample.Tower;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import sample.Bullet.Bullet;
+import sample.Draw;
 import sample.GameLaunch;
 import sample.Room;
 import sample.Value;
@@ -15,6 +17,7 @@ public class LaserTower extends Tower {
         areaTower = 200;
         speedTower = 5;
         displayAreaTower = new Circle(getX() + getWidth()/2, getY() + getHeight()/2, areaTower);
+        audioClipBullet = new AudioClip((Value.sound4).toURI().toString());
     }
 
     public void physic(){
@@ -31,6 +34,7 @@ public class LaserTower extends Tower {
                             shotMob = i;
                             if (delaySpeedTower >= speedTower) {
                                 GameLaunch.enemies.get(shotMob).loseHealth(damageTower);
+                                audioClipBullet.play();
                             }
                             break;
                         }

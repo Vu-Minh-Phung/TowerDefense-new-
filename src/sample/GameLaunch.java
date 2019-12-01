@@ -11,7 +11,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
 
-import javafx.scene.media.AudioClip;
+//import javafx.scene.media.AudioClip;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontPosture;
@@ -75,7 +76,7 @@ public class GameLaunch {
     public static Image[] titlesIcon = new Image[10];
     public static AnimatedImages[] titlesBullet = new AnimatedImages[10];
     public static AnimatedImages[] titlesEnemy = new AnimatedImages[20];
-    public static List<File> pathMediaGame = new ArrayList<>();
+    public static List<MediaPlayer> mediaGame = new ArrayList<>();
 
 
     public void define() {
@@ -151,9 +152,11 @@ public class GameLaunch {
 
             System.out.println("Loaded titlesEnemy!" + j);
 
-            AudioClip audioClip = new AudioClip("C:\\Users\\QD\\GameJavaFx\\Sound\\alert.mp3");
-            audioClip.play();
-
+            mediaGame.add( Draw.loadMedia(Value.sound1) );
+            mediaGame.add( Draw.loadMedia(Value.sound2) );
+            mediaGame.add( Draw.loadMedia(Value.sound3) );
+            mediaGame.add( Draw.loadMedia(Value.sound9) );
+            mediaGame.add( Draw.loadMedia(Value.sound10) );
         }
         catch (Exception e){
             System.out.println("Cannot load Image");
@@ -164,6 +167,10 @@ public class GameLaunch {
 
     public void initGameLaunch(Group group, GraphicsContext graphicsContext){
         try {
+            for(int i = 0; i < mediaGame.size(); i++){
+                mediaGame.get(i).pause();
+            }
+            mediaGame.get(1).play();
 
             room = new Room();
 
@@ -205,12 +212,14 @@ public class GameLaunch {
             }
         }
         isWin = true;
+        Draw.playSound(3);
     }
 
     public void checkLose(){
         if(life <= 0 ){
             isLose = true;
             System.out.println("zo");
+            Draw.playSound(4);
         }
         else isLose = false;
     }
@@ -242,14 +251,19 @@ public class GameLaunch {
         graphicsContext.setFont(Font.font("Arial", FontWeight.BOLD, FontPosture.REGULAR, 30));
         graphicsContext.strokeText("You Lose", GameStart.WIDTH/2, GameStart.HEIGHT/1.2);
         graphicsContext.setTextAlign(TextAlignment.CENTER);
+
     }
 
     void init(Group group, GraphicsContext graphicsContext){
         group.setOnMouseClicked(e->{
             gameStatus = GameStatus.RUNNING;
             graphicsContext.fillRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);
-
+            isFirst = true;
         });
+        if(isFirst){
+            Draw.playSound(0);
+            isFirst = false;
+        }
         graphicsContext.drawImage(titlesMap[0], 0, 0, GameStart.WIDTH, GameStart.HEIGHT);
         graphicsContext.setStroke(Color.RED);
         graphicsContext.setLineWidth(2);
@@ -285,7 +299,7 @@ public class GameLaunch {
 
                             initGameLaunch(group, graphicsContext);         // Tải dữ liệu từ file, Tạo Room , Tạo Store, Tạo Enemy;
                             store.draw(group, graphicsContext, room.blocks);    // Vẽ store
-                            life = 100;
+                            life = 1;
                             coin = 100;
                             create = true;
                             isFirst = false;
@@ -318,7 +332,6 @@ public class GameLaunch {
                         checkLose();
                         if(isWin || isLose){
                             gameStatus = GameStatus.END;
-
                         }
                     }
                     else {
@@ -347,6 +360,7 @@ public class GameLaunch {
                             if(isLose || (isWin && lv == 5)) {
                                 gameStatus = GameStatus.INIT;
                                 lv = 0;
+                                //Draw.pauseSound();
                             }
                             graphicsContext.fillRect(0, 0, GameStart.WIDTH, GameStart.HEIGHT);
 

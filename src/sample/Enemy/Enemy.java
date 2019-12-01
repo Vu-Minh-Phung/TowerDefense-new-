@@ -1,6 +1,7 @@
 
 package sample.Enemy;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import sample.Block;
@@ -27,9 +28,7 @@ public abstract class Enemy extends Rectangle {
 
     public int modWalk = 0;
 
-    public enum Direction {UP, DOWN, LEFT, RIGHT}
-
-    ;
+    public enum Direction {UP, DOWN, LEFT, RIGHT};
 
     public Direction direction = Direction.RIGHT;
 
@@ -37,6 +36,8 @@ public abstract class Enemy extends Rectangle {
     public boolean hasDown = false;
     public boolean hasLeft = false;
     public boolean hasRight = false;
+
+    public AudioClip audioClipEnemy = new AudioClip((Value.sound7).toURI().toString());
 
     public Enemy() {
         scaleHealth = modSize;
@@ -61,6 +62,7 @@ public abstract class Enemy extends Rectangle {
         if(isDie == false)  getMoney();
         isDie = true;
         inGame = false;
+        audioClipEnemy.play();
     }
 
     public void attackHealth() {

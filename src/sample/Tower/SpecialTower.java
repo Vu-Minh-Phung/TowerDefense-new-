@@ -1,8 +1,10 @@
 package sample.Tower;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import sample.Bullet.Bullet;
+import sample.Draw;
 import sample.GameLaunch;
 import sample.Room;
 import sample.Value;
@@ -14,6 +16,7 @@ public class SpecialTower extends Tower{
         areaTower = 70;
         speedTower = 2;
         idBulletTower = 0;
+        audioClipBullet = new AudioClip((Value.sound5).toURI().toString());
     }
 
     public void physic(){
@@ -34,6 +37,7 @@ public class SpecialTower extends Tower{
                             if (delaySpeedTower >= speedTower) {
                                 GameLaunch.bullets.add(new Bullet(idBulletTower, shotMob, getX() + getWidth() / 2, getY() + getHeight() / 2, Room.blockSize / 4, speedBulletTower, damageTower));
                                 checkShotting = true;
+                                audioClipBullet.play();
                             }
                         }
                     }

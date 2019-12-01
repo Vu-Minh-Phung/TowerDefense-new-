@@ -2,10 +2,9 @@ package sample.Place;
 
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.image.Image;
-import sample.Block;
-import sample.GameLaunch;
-import sample.Room;
-import sample.Value;
+import javafx.scene.media.AudioClip;
+import sample.*;
+import sample.Enemy.BossEnemy;
 
 public class Spawn implements Place{
     public static int idX;
@@ -17,6 +16,7 @@ public class Spawn implements Place{
 
     public int delaySpawn = 100;
     public int delay = 0;
+    AudioClip audioClipEnemy = new AudioClip(Value.sound6.toURI().toString());
     public Spawn(){
         widthSpawn = Room.blockSize;
         heightSpawn = Room.blockSize + 20;
@@ -31,6 +31,10 @@ public class Spawn implements Place{
         if (GameLaunch.create) {
             if (delay >= delaySpawn) {
                 for (int i = 0; i < GameLaunch.enemies.size(); i++) {
+                    if(GameLaunch.enemies.get(i) instanceof BossEnemy){
+                        //audioClipEnemy = new AudioClip(Value.sound2.toURI().toString());
+                        audioClipEnemy.play();
+                    }
                     if (!GameLaunch.enemies.get(i).inGame && !GameLaunch.enemies.get(i).isDead()) {
                         GameLaunch.enemies.get(i).spawnMob(blocks);
                         break;

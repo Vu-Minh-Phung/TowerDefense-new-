@@ -1,10 +1,12 @@
 package sample.Tower;
 
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.media.AudioClip;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
 import sample.Bullet.Bullet;
+import sample.Draw;
 import sample.GameLaunch;
 import sample.Room;
 import sample.Value;
@@ -20,7 +22,7 @@ public class Tower extends Rectangle{
     protected int speedTower = 40;
     protected int delaySpeedTower = speedTower;
     public int upgrade = 1;
-
+    public AudioClip audioClipBullet = new AudioClip((Value.sound4).toURI().toString());
     int idBulletTower = 0;
 
     public Tower(double positionX, double positionY, double width, double height, int airId) {
@@ -30,10 +32,12 @@ public class Tower extends Rectangle{
         this.damageTower = 1;
         this.speedBulletTower = 3;
         displayAreaTower = new Circle(getX() + getWidth()/2, getY() + getHeight()/2, areaTower);
+        audioClipBullet = new AudioClip((Value.sound5).toURI().toString());
     }
 
     public int shotMob = -1;
     public boolean shoting = false;
+
 
     public void physic(){
         try {
@@ -52,6 +56,7 @@ public class Tower extends Rectangle{
                             if (delaySpeedTower >= speedTower) {
                                 GameLaunch.bullets.add(new Bullet(idBulletTower, shotMob, getX() + getWidth() / 2, getY() + getHeight() / 2, Room.blockSize / 4, speedBulletTower, damageTower));
                                 delaySpeedTower = 0;
+                                audioClipBullet.play();
                             }
                             break;
                         }
